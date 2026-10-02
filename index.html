@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sirui Chen | Rutgers Business School Portfolio</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text-main: #000000;
+      --text-muted: #555555;
+      --border-color: #eaeaea;
+      --tiffany: #0abab5;
+      --tiffany-hover: #087f7a;
+      --tiffany-light: rgba(10, 186, 181, 0.08);
+      --card-bg: #fafafa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* 顶部导航栏 */
+    nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .nav-brand .brand-badge {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--tiffany-hover);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-brand .brand-name {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333333;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--tiffany-hover);
+    }
+
+    .btn-dark {
+      background-color: #0f172a;
+      color: #ffffff !important;
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .btn-dark:hover {
+      background-color: var(--tiffany-hover);
+    }
+
+    /* 主容器 */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1rem 2rem 5rem 2rem;
+    }
+
+    /* Hero 区域：左右两栏布局 */
+    .hero {
+      display: flex;
+      align-items: flex-start;
+      gap: 4rem;
+      padding: 3.5rem 0 4.5rem 0;
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0 3rem 0;
+      }
+    }
+
+    .hero-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .hero-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.2rem;
+      border: 3px solid var(--tiffany);
+      box-shadow: 0 4px 14px rgba(10, 186, 181, 0.15);
+    }
+
+    .hero-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .hero-school {
+      font-size: 0.88rem;
+      color: var(--tiffany-hover);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+
+    .hero-batch {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background-color: var(--tiffany-light);
+      color: var(--tiffany-hover);
+      border: 1px solid rgba(10, 186, 181, 0.25);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-title {
+      font-size: 2.7rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+
+    /* 评分标准硬性要求：严格的一句话简介 */
+    .hero-statement {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .btn-pill {
+      border: 1px solid #d1d5db;
+      padding: 0.55rem 1.4rem;
+      border-radius: 9999px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .btn-pill:hover {
+      border-color: var(--tiffany);
+      color: var(--tiffany-hover);
+    }
+
+    .action-link {
+      color: var(--tiffany-hover);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .action-link:hover {
+      color: var(--text-main);
+      text-decoration: underline;
+    }
+
+    /* 版块公共标题 */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* 技能清单 */
+    .skills-section {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      margin-bottom: 3.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .skill-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+
+    .skill-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 项目网格 */
+    .projects-section {
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--tiffany);
+      box-shadow: 0 6px 20px rgba(10, 186, 181, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .project-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--tiffany-hover);
+      background: var(--tiffany-light);
+      border: 1px solid rgba(10, 186, 181, 0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+
+    .project-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.4rem;
+      flex-grow: 1;
+    }
+
+    .project-btn {
+      color: var(--tiffany-hover);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .project-btn:hover {
+      color: var(--text-main);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 4rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <span class="brand-badge">RBS</span>
+      <span class="brand-name">Sirui's Portfolio</span>
+    </a>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="https://github.com/chen13570001949-hub" target="_blank" rel="noopener" class="btn-dark">GitHub Profile</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero 区域 -->
+    <section class="hero">
+      <div class="hero-profile">
+        <img src="headshot.jpg" alt="Sirui Chen" class="hero-avatar" />
+        <div class="hero-name">Sirui (Laurence) Chen</div>
+        <div class="hero-school">Rutgers Business School</div>
+        <div class="hero-batch">Class of 2028</div>
+      </div>
+
+      <div class="hero-content">
+        <span class="status-badge">Finance, Economics & Math</span>
+        <h1 class="hero-title">Quantitative business modeling, rooted at Rutgers.</h1>
+        <!-- Strict 1-sentence Personal Statement -->
+        <p class="hero-statement">
+          Undergraduate student at Rutgers University specializing in quantitative financial analysis, corporate valuation architectures, and full-stack software application design.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:chensirui@example.com" class="btn-pill">Email Me</a>
+          <a href="#projects" class="action-link">Explore Projects &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills 区域 -->
+    <section id="skills" class="skills-section">
+      <h2 class="section-title">Core Competencies & Skills</h2>
+      <p class="section-desc">Key technical methodologies and analytical tools applied across academic and commercial projects.</p>
+      
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Quantitative & Financial Analysis</h3>
+          <p>DCF Valuation, Value at Risk (VaR), Macro/Microeconomics, Financial Accounting Principles</p>
+        </div>
+        <div class="skill-card">
+          <h3>Programming & Data Engineering</h3>
+          <p>Python (Pandas, NumPy), JavaScript (ES6+), Advanced Excel / Spreadsheet Automation</p>
+        </div>
+        <div class="skill-card">
+          <h3>Interactive Web Development</h3>
+          <p>HTML5, Responsive CSS Layouts, RESTful API Gateway Prototyping, Git Workflow</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects 区域 -->
+    <section id="projects" class="projects-section">
+      <h2 class="section-title">Core Business Pillars: My Work</h2>
+      <p class="section-desc">Interactive live demonstrations showing end-to-end technical implementation across gaming platforms and financial tools.</p>
+
+      <div class="project-grid">
+        <!-- Project 1: Gaming Hub -->
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Interactive Web Platform</span>
+            <h3>V-Network: VALORANT Tactical Social Hub</h3>
+            <p>A gaming community portal featuring a simulated Riot Sign-In identity gateway, live agent roster filtering, and a real-time team recruitment board.</p>
+          </div>
+          <a href="project-gaming-hub.html" class="project-btn">Launch Live Demo &rarr;</a>
+        </div>
+
+        <!-- Project 2: DCF Valuation -->
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Financial Valuation</span>
+            <h3>Corporate Discounted Cash Flow (DCF) Engine</h3>
+            <p>Client-side 5-year discrete cash flow valuation model computing Enterprise Value, Equity Value, and implied target share price via dynamic WACC inputs.</p>
+          </div>
+          <a href="project-valuation-dcf.html" class="project-btn">Launch Live Demo &rarr;</a>
+        </div>
+
+        <!-- Project 3: Risk Analytics -->
+        <div class="project-card">
+          <div>
+            <span class="project-tag">Quantitative Risk</span>
+            <h3>Portfolio Value at Risk (VaR) Simulator</h3>
+            <p>Parametric market risk testing tool analyzing downside capital exposure across 95% and 99% confidence intervals based on holding period volatilities.</p>
+          </div>
+          <a href="project-risk-var.html" class="project-btn">Launch Live Demo &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Sirui Chen. Rutgers Business School. Hosted via GitHub Pages.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
